@@ -17,6 +17,19 @@ document.addEventListener('click', (e) => {
     }
 });
 
+if(localStorageArray){
+    if(localStorageArray.length >= 0){
+        renderObject(localStorageArray);
+    }else{
+        watchlist.innerHTML = `
+        <h5 class="third-font-color">Your watchlist is looking a little empty...</h5>
+        <a href="index.html" style="text-decoration: none; color: var(--font-clr);">
+            <h6><img src="icon/add.svg" class="me-2">Let's add some movies!</h6>
+        </a>
+        `;
+    }
+}
+
 // -------------- Render -------------- //
 
 function renderObject(array){
@@ -49,15 +62,4 @@ function renderObject(array){
         </div>
     </div>
     `); 
-}
-
-if(watchlist){
-    watchlist.innerHTML = `
-        <h5 class="third-font-color">Your watchlist is looking a little empty...</h5>
-        <a href="index.html" style="text-decoration: none; color: var(--font-clr);"><h6><img src="icon/add.svg" class="me-2">Let's add some movies!</h5></a>
-        `;
-}
-
-if(localStorageArray.length > 0){
-    renderObject(localStorageArray);
 }

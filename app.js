@@ -9,7 +9,10 @@ const form = document.getElementById('search-form');
 const localStorageName = 'watchlist';
 
 let searchedMoviesArray = [];
-let localStorageArray = JSON.parse(localStorage.getItem(localStorageName));
+let localStorageArray = [];
+if (localStorage.getItem(localStorageName)) {
+    localStorageArray = JSON.parse(localStorage.getItem(localStorageName));
+}
 
 
 // -------------- Event Listeners -------------- //
@@ -90,12 +93,16 @@ function errorHandle(error) {
 // -------------- Local Storage Check -------------- //
 
 function checkAlreadyAdded(id) {
-    for (let i = 0; i < localStorageArray.length; i++) {
-      if (localStorageArray[i].id === id) {
-        return true;
-      }
+    if(localStorageArray == null){
+        return false;
+    } else {
+        for (let i = 0; i < localStorageArray.length; i++) {
+          if (localStorageArray[i].id === id) {
+            return true;
+          }
+        }
+        return false;
     }
-    return false;
 }
 
 // -------------- Render Movie Functions -------------- //
