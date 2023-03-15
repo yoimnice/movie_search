@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: var(--font-clr);
+}
+
+
+a{
+    text-decoration: none;
+    color: var(--font-clr);
+}
+
+:root{
+    --dark-bg-color: #121212;
+    --gray-bg-color: #2E2E2F;
+    --gray2-bg-color: #4B4B4B;
+    --font-gray2: #787878;
+    --font-clr: #FFFFFF;
+    --font-gray: #A5A5A5;
+}
+
+.background-img{
+    background-image: url(img/background-img.png);
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.custom-img-size{
+    width: 10em;
+}
+
+.custom-height-1{
+    min-height: 70vh;
+}
+
+.custom-header{
+    height: 30vh;
+}
+
+.searchbar-position{
+    bottom: -1em;
+    z-index: 100;
+}
+
+.custom-searchbar{
+    height: 3em;
+    width: 70%;
+    border: none;
+    border-radius: .5em 0 0 .5em;
+    padding-left: 3.5em;
+    background-color: var(--gray-bg-color);
+    background-image: url('icon/search-icon.svg');
+    background-size: 1.5em 1.5em;
+    background-repeat: no-repeat;
+    background-position: 1em center;
+}
+
+.custom-searchbar::placeholder{
+    color: var(--font-gray);
+}
+
+.custom-searchbar:focus, .custom-searchbar:valid{
+    background-color: var(--gray-bg-color);
+    color: var(--font-gray);
+}
+
+.custom-searchbar:focus{
+    border: 2px solid darkgray;
+    outline: none;
+}
+
+.custom-searchbar:valid{
+    border: 1px solid var(--font-gray);
+    border-radius: .5em 0 0 .5em;
+    padding-left: 3.5em;
+    background-color: var(--gray-bg-color) !important;
+    background-image: url('icon/search-icon.svg');
+    background-size: 1.5em 1.5em;
+    background-repeat: no-repeat;
+    background-position: 1em center;
+}
+
+.custom-search-btn{
+    width: 30%;
+    color: var(--font-clr);
+    background-color: var(--gray2-bg-color);
+    border: none;
+    border-radius: 0 .5em .5em 0;
+}
+
+.custom-search-btn:active{
+    background-color: var(--gray2-bg-color) !important;
+    opacity: 0.9 !important;
+    border: none;
+}
+
+.custom-search-btn:hover{
+    background-color: var(--dark-bg-color);
+    border: .1em solid var(--gray2-bg-color);
+}
+
+.add-button:hover, .remove-button:hover{
+    cursor: pointer;
+}
+
+/* utils */
+
+svg path,
+svg rect{
+  fill: var(--font-gray);
+}
+
+.icon{
+    width: 5em;
+}
+
+.icon-grey{
+    filter: invert(15%) sepia(6%) saturate(135%) hue-rotate(201deg) brightness(98%) contrast(91%); 
+}
+
+.second-font-color{
+    color: var(--gray2-bg-color);
+}
+
+.third-font-color{
+    color: var(--font-gray2);
+}
+
+.bg-dark{
+    background-color: var(--dark-bg-color) !important;
+}
