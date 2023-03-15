@@ -43,7 +43,7 @@ async function fetchData(movie){
     } else {
         renderLoadingAnimation();
         try {
-            const response = await fetch(`http://www.omdbapi.com/?s=${movie}&apikey=${APIkey}`);
+            const response = await fetch(`https://www.omdbapi.com/?s=${movie}&apikey=${APIkey}`);
             if (!response.ok){
                 throw new Error(`Request to the server failed, please try again.`);
             }
@@ -52,7 +52,7 @@ async function fetchData(movie){
             const displaySearchArray = await getMovieById(movieIdArray);
             renderObject(displaySearchArray);
         } catch (error) {
-            renderSearchError();
+            errorHandle(error);
         }
     }
 }
@@ -62,7 +62,7 @@ async function getMovieById(array){
     for(let movie of array){
         try {
             let id = movie.imdbID;
-            const res = await fetch(`http://www.omdbapi.com/?i=${id}&apikey=26ee2b21`);
+            const res = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=26ee2b21`);
             if (!res.ok){
                 throw new Error('Request to the server failed, please try again.');
             }
@@ -120,7 +120,9 @@ function renderObject(array){
             <div class="container d-flex border-bottom" style="border-color: #2C2C2C !important;" id="movie-wrapper-${imdbID}">
                 <div class='col-xxl-8 d-flex bg-dark py-4' style="color: white;">
                     <div class='mx-3'>
-                        <img src="${Poster}" class="custom-img-size" loading="lazy">
+                        <div class="custom-img-placeholder">
+                            <img src="${Poster}" class="custom-img-size" loading="lazy">
+                        </div>
                     </div>
                     <div class='d-flex flex-column'>
                         <div class='d-flex gap-3 align-items-end'>
@@ -148,7 +150,9 @@ function renderObject(array){
             <div class="container d-flex border-bottom" style="border-color: #2C2C2C !important;" id="movie-wrapper-${imdbID}">
                 <div class='col-xxl-8 d-flex bg-dark py-4' style="color: white;">
                     <div class='mx-3'>
-                        <img src="${Poster}" class="custom-img-size" loading="lazy">
+                        <div class="custom-img-placeholder">
+                            <img src="${Poster}" class="custom-img-size" loading="lazy">
+                        </div>
                     </div>
                     <div class='d-flex flex-column'>
                         <div class='d-flex gap-3 align-items-end'>
@@ -183,7 +187,7 @@ function renderSearchError(){
     html = `
         <div class=" position-absolute top-50 start-50 translate-middle container gap-2  flex-column justify-content-center align-items-center text-center px-5" id="start-exploring-modal">
                 <img src="icon/error.png" class="icon icon-grey">
-                <h5 class="second-font-color mt-4">Sorry, we cant find the film by this name</h5>
+                <h5 class="second-font-color mt-4">Sorry, but the searchbar is empty. Try to type something</h5>
         </div>
     `;
     filmsContainer.innerHTML = html;
