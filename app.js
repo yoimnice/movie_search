@@ -126,10 +126,8 @@ function renderObject(array){
             filmsContainer.innerHTML += `
             <div class="container d-flex border-bottom" style="border-color: #2C2C2C !important;" id="movie-wrapper-${imdbID}">
                 <div class='col-xxl-8 d-flex bg-dark py-4' style="color: white;">
-                    <div class='mx-3'>
-                        <div class="custom-img-placeholder">
-                            <img src="${Poster}" class="custom-img-size" loading="lazy">
-                        </div>
+                    <div class='mx-3 movie-img-container'>
+                            <img src="${Poster}" class="img-fluid" loading="lazy">
                     </div>
                     <div class='d-flex flex-column'>
                         <div class='d-flex gap-3 align-items-end'>
@@ -156,10 +154,8 @@ function renderObject(array){
             filmsContainer.innerHTML += `
             <div class="container d-flex border-bottom" style="border-color: #2C2C2C !important;" id="movie-wrapper-${imdbID}">
                 <div class='col-xxl-8 d-flex bg-dark py-4' style="color: white;">
-                    <div class='mx-3'>
-                        <div class="custom-img-placeholder">
-                            <img src="${Poster}" class="custom-img-size" loading="lazy">
-                        </div>
+                    <div class='mx-3 movie-img-container'>
+                            <img src="${Poster}" class="img-fluid" loading="lazy">
                     </div>
                     <div class='d-flex flex-column'>
                         <div class='d-flex gap-3 align-items-end'>
@@ -172,7 +168,7 @@ function renderObject(array){
                             <div id="add-btn-container-${imdbID}">
                                 <p class="d-flex gap-1 m-0">
                                 <img class="remove-button" data-remove-watch-list="${imdbID}" id="remove-from-watchlist-${imdbID}" src='icon/remove.svg'>
-                                    Remove from the <a href='watchlist.html'>Watchlist</a>
+                                    Remove
                                 </p>
                             </div>
                         </div>
@@ -205,7 +201,7 @@ function renderNewAddBtnStyle(id){
     html = `
     <p class="d-flex gap-1 m-0">
     <img class="remove-button" data-remove-watch-list="${id}" id="remove-from-watchlist-${id}" src='icon/remove.svg'>
-        Remove from the <a href='watchlist.html'>Watchlist</a>
+        Remove
     </p>
     `;
     document.getElementById(`add-btn-container-${id}`).innerHTML = html;
